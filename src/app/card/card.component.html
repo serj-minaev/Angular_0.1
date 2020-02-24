@@ -1,0 +1,29 @@
+<div class="card">
+  <div>
+    <img src="{{ imgUrl }}" alt="">
+    <h2 [ngStyle]="{
+    color: card.title.length < 7 ? 'blue' : 'green'
+    }">{{ card.title }}</h2>
+    <p class="text" [ngClass]="{
+    blue: textColor === 'blue',
+    green: textColor === 'green',
+    red: textColor === 'red'
+    }">{{ card.text }}</p>
+    <button [disabled]="disabled" (click)="changeTitle()">Change title</button>
+    <button (click)="card.title = 'Inline title'">Change title</button>
+    <div class="buttons">
+      <button (click)="textColor = 'blue'">Set Blue</button>
+      <button (click)="textColor = 'green'">Set green</button>
+      <button (click)="textColor = 'red'">Set red</button>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]='card.title'>
+    </div>
+<!--    <input type="text" #myinput (input)="inputHandler(myinput.value)" [value]="title">-->
+  </div>
+  <div>
+    <pre>{{ obj | json }}</pre>
+  </div>
+
+
+</div>
